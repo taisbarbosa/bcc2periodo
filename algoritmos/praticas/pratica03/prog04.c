@@ -14,8 +14,13 @@ int find_max(int n, int vet[]){
     return max;
 }
 
-void main(){
-    printf(find_max(4, (1,2,3,4)));
+int main(){
+
+    int v[]= {3, 10, -4, 6};
+
+    printf("maior: %d \n", find_max(4, v));
+
+    return 0;
 }
 
 
