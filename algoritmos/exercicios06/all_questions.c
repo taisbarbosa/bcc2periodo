@@ -48,19 +48,18 @@ void get_min_max(int n, const int* vect, int* min, int* max){
 // q06. receives the dimensions and address of an matrix. The function must print its content.
 
     void print_vector2D(int rows, int cols, const int* m){
-        int* ad;
-        for (int i = 0; i < rows; i++)
-        {
-            printf("\n");
-            *ad= *(m+i);
+        //int* ad;
 
-            for (int j = 0; j < cols; j++)
+        int *p = m;
+
+        for (int i = 0; i < rows; i++){
+            for (int j =0; j < cols; j++)
             {
-                printf("%2d ", *(ad+j));
+                printf("%2d ", *p);
+                p++;
             }
-            
+        printf("\n");
         }
-        
     }
 
 //MAIN
