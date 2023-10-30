@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 // q01. declare three variables (char, int and double) and print their Adresses.
 
@@ -47,20 +48,65 @@ void get_min_max(int n, const int* vect, int* min, int* max){
 
 // q06. receives the dimensions and address of an matrix. The function must print its content.
 
-    void print_vector2D(int rows, int cols, const int* m){
-        //int* ad;
-
-        int *p = m;
-
-        for (int i = 0; i < rows; i++){
-            for (int j =0; j < cols; j++)
-            {
-                printf("%2d ", *p);
-                p++;
-            }
-        printf("\n");
+void print_vector2D(int rows, int cols, const int* m){
+    int *p = m;
+    for (int i = 0; i < rows; i++){
+        for (int j =0; j < cols; j++)
+        {
+            printf("%2d ", *p);
+            p++;
         }
+    printf("\n");
     }
+}
+
+// q07. The function must concatenate, at the end of the original string, a vertical bar, followed by the contents of the string in reverse
+
+void make_mirrored(char* string){
+    int a = strlen(string)*2+2;
+    int b = 0;
+    int len = strlen(string);
+    char *copy = string;
+    
+    printf("%s|", copy);
+    while (b!=a)
+    {
+        printf("%c",*(copy+len));
+        a--;
+        b++;
+        len--;
+    }
+}
+
+// q08. receives the address of two strings and calculates the Hamming distance between both
+
+void get_hamming_distance(const char* str1, const char* str2){
+    int d = 0;
+    int len1 = strlen(str1);
+    int len2 = strlen(str2);
+
+    if (len1!=len2){
+        printf("LENGTH ERROR!");
+    }else{
+        for (int i = 0; i < len1; i++)
+        {
+            if(*str1!=*str2){
+                d++;
+            }
+            str1++;
+            str2++;
+        }
+        
+    }
+    printf("%d", d);
+}
+
+// q09. return the address of the most similar "string"
+
+char* find_most_similar(const char* str, int n, char list[n][50]){
+    
+}
+
 
 //MAIN
 
@@ -120,5 +166,20 @@ int main(){
     print_vector2D(rows, cols, (int*)matrix);
 
     printf("\n\n_______  _(end)_  _______\n\n");
+
+    // q07
+
+    char string[] = "Lorem";
+    make_mirrored((char*)string);
     
+    printf("\n\n_______  _(end)_  _______\n\n");
+
+    //q08 
+
+    char s1[] = "banana";
+    char s2[] = "cabana";
+    get_hamming_distance((char*) s1, (char*) s2);   
+
+    printf("\n\n_______  _(end)_  _______\n\n");
+
 }
