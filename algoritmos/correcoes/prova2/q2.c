@@ -28,6 +28,6 @@ void updt_stock(int n1, item* order, int n2, item* stock){
 
 int main(){
     int order[][2] = {{1,2},{5,6},{9,10}};
-    int stock[][2] = {{1,2},{6,9},{88,70};
+    int stock[][2] = {{1,2},{6,9},{88,70}};
     updt_stock(3, (int*)order, 3, (int*)stock);
 }
