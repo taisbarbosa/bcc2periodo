@@ -104,7 +104,41 @@ void get_hamming_distance(const char* str1, const char* str2){
 // q09. return the address of the most similar "string"
 
 char* find_most_similar(const char* str, int n, char list[n][50]){
+    int distance1 = 0;
+    char *s;
+    char *p = *list;
+    char *res;
+
+    for (int i = 0; i < n-1; i++)
+    {  
     
+        int len1 = strlen(str);
+        int len2 = strlen(p[i]);
+        printf("%d\n", len1);
+        printf("%d\n", len2);
+
+
+        if (len1!=len2){
+            printf("LENGTH ERROR!");
+        }else{
+            int distance_max = len1;
+
+            for (int j = 0; j < len1; j++)
+            {
+                if(*str!=p[i]){
+                    distance1++;
+                }
+                str++;
+            }
+            if (distance1<distance_max)
+            {
+                res = p[i];
+                distance_max = distance1;
+                distance1=0;
+            }
+        }
+    }
+    return res;
 }
 
 
@@ -182,4 +216,12 @@ int main(){
 
     printf("\n\n_______  _(end)_  _______\n\n");
 
+    // q09
+
+    char str[]="banana";
+    char words[][50] = {"cabana", "savana", "bacana", "halana"};
+    char* most_similar = find_most_similar((char*)str, 4, words);
+    printf("%p  %s", &most_similar, most_similar); 
+
+    printf("\n\n_______  _(end)_  _______\n\n");
 }
