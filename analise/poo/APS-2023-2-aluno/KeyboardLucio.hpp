@@ -11,9 +11,15 @@ class KeyboardLucio: public Keyboard{
     
     
   public:
-    void addKey(Key*);
+    void addKey(Key* key){
+      this.KeyLucio.getSymbol();
+      this.KeyLucio.getDigit();
+      this.KeyLucio.getOperador();
+      this.KeyLucio.getControl();
+    };
     void removeKey(Key*);
     Key* findKey(Symbol);
+    
     void setCpu(Cpu*);
     Cpu* getCpu();
 };
