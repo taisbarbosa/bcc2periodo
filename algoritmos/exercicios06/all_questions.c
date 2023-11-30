@@ -104,41 +104,20 @@ void get_hamming_distance(const char* str1, const char* str2){
 // q09. return the address of the most similar "string"
 
 char* find_most_similar(const char* str, int n, char list[n][50]){
-    int distance1 = 0;
-    char *s;
-    char *p = *list;
-    char *res;
-
-    for (int i = 0; i < n-1; i++)
+    int min = INT_MAX;
+    char min_i =  0;
+    for (int i = 0; i < n; i++)
     {  
-    
-        int len1 = strlen(str);
-        int len2 = strlen(p[i]);
-        printf("%d\n", len1);
-        printf("%d\n", len2);
+        int distance = get_hamming_distance(str, list[i])
 
-
-        if (len1!=len2){
-            printf("LENGTH ERROR!");
+        if (distance<min){
+            min = distance;
+            min_i = i;
         }else{
-            int distance_max = len1;
 
-            for (int j = 0; j < len1; j++)
-            {
-                if(*str!=p[i]){
-                    distance1++;
-                }
-                str++;
-            }
-            if (distance1<distance_max)
-            {
-                res = p[i];
-                distance_max = distance1;
-                distance1=0;
-            }
         }
     }
-    return res;
+    return list[min_i];
 }
 
 
